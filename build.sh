@@ -199,9 +199,9 @@ cd $BUILDDIR/$ARCH
 	sed -i,tmp "s/#define U_OVERRIDE_CXX_ALLOCATION 1/#define U_OVERRIDE_CXX_ALLOCATION 0/g" common/unicode/uconfig.h
 
 	if [ $SHARED_ICU ]; then
-		libtype='--enable-shared --disable-static'
+		libtype='--enable-shared --disable-static --enable-renaming=no'
 	else
-		libtype='--enable-static --disable-shared'
+		libtype='--enable-static --disable-shared --enable-renaming=no'
 	fi
 
 	env CFLAGS="-frtti -fexceptions" \
@@ -213,7 +213,6 @@ cd $BUILDDIR/$ARCH
 		--host=$GCCPREFIX \
 		--prefix=`pwd`/../../ \
 		--with-cross-build=`pwd`/cross \
-                --enable-renaming=no \
 		$libtype \
 		--with-data-packaging=archive \
 		|| exit 1

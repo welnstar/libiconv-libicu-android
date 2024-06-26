@@ -44,6 +44,8 @@ jobs:
       run: |
         export PATH=$NDK_ROOT:$PATH
         export ARCHS="${{ matrix.abi }}"
+        export SKIP_ICONV=true
+        export SKIP_HARFBUZZ=true
         ./build.sh
     - name: Prepare Binaries
       run: |

@@ -213,7 +213,7 @@ cd $BUILDDIR/$ARCH
 		--host=$GCCPREFIX \
 		--prefix=`pwd`/../../ \
 		--with-cross-build=`pwd`/cross \
-                --enable-renaming=false \
+                --enable-renaming=no \
 		$libtype \
 		--with-data-packaging=archive \
 		|| exit 1

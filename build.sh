@@ -204,7 +204,7 @@ cd $BUILDDIR/$ARCH
 		libtype='--enable-static --disable-shared'
 	fi
 
-	env CFLAGS="-frtti -fexceptions -DU_DISABLE_RENAMING=1" \
+	env CFLAGS="-frtti -fexceptions" \
 		LDFLAGS="-frtti -fexceptions -L$BUILDDIR/$ARCH/lib" \
 		LIBS="-L$BUILDDIR/$ARCH `$BUILDDIR/setEnvironment-$ARCH.sh sh -c 'echo $LDFLAGS'`" \
 		ac_cv_func_strtod_l=no \
@@ -213,6 +213,7 @@ cd $BUILDDIR/$ARCH
 		--host=$GCCPREFIX \
 		--prefix=`pwd`/../../ \
 		--with-cross-build=`pwd`/cross \
+                --disable-renaming \
 		$libtype \
 		--with-data-packaging=archive \
 		|| exit 1

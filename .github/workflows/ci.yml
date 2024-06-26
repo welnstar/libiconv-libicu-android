@@ -12,7 +12,7 @@ jobs:
         abi: [armeabi-v7a,arm64-v8a,x86,x86_64]
         #os: [ubuntu-latest,macos-latest]
         os: [ubuntu-latest]
-        ndk_version: [25.2.9519653]
+        ndk_version: [21.4.7075529]
         include:
           # includes a new variable of 'variation' for each host os
           - os: ubuntu-latest

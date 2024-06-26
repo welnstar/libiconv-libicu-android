@@ -204,7 +204,7 @@ cd $BUILDDIR/$ARCH
 		libtype='--enable-static --disable-shared'
 	fi
 
-	env CFLAGS="-frtti -fexceptions" \
+	env CFLAGS="-frtti -fexceptions -DU_ICU_ENTRY_POINT_RENAME" \
 		LDFLAGS="-frtti -fexceptions -L$BUILDDIR/$ARCH/lib" \
 		LIBS="-L$BUILDDIR/$ARCH `$BUILDDIR/setEnvironment-$ARCH.sh sh -c 'echo $LDFLAGS'`" \
 		ac_cv_func_strtod_l=no \
